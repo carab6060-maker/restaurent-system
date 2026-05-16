@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BurgerCraft — Legendary Smash Burgers</title>
+  <link rel="stylesheet" href="public-styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="header-top">
+      <div class="contact-strip">
+        <span><i class="fas fa-phone"></i> +1 (555) 823-4400</span>
+        <span><i class="fas fa-clock"></i> Mon–Sun: 11AM – 11PM</span>
+        <span><i class="fas fa-map-marker-alt"></i> 24 Flame Street, Grill City</span>
+      </div>
+    </div>
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-icon">🔥</span>
+        <span class="logo-text">Burger<span>Craft</span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#featured">Menu</a></li>
+        <li><a href="#choose">Specials</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#reservation">Reserve</a></li>
+      </ul>
+      <a href="#reservation" class="nav-cta">Book a Table</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">🏆 Award-Winning Since 2012</p>
+      <h1 class="hero-title">Burger<br/><span>Week</span><br/>Is Here.</h1>
+      <p class="hero-sub">Hand-pressed smash patties, premium toppings, and sauces crafted from scratch. Come hungry, leave legendary.</p>
+      <div class="hero-actions">
+        <a href="#featured" class="btn btn-primary">Explore Menu</a>
+        <a href="#reservation" class="btn btn-outline">Reserve a Seat</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <div class="price-badge">
+        <span class="price-from">From</span>
+        <span class="price-val">$8.99</span>
+      </div>
+      <img
+        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700&q=85&auto=format"
+        alt="Signature Smash Burger"
+        class="hero-burger-img"
+      />
+      <div class="hero-float-tag">
+        <i class="fas fa-fire"></i> Hot &amp; Fresh
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STATS BAR ========== -->
+  <section class="stats-bar">
+    <div class="stat">
+      <span class="stat-num">120+</span>
+      <span class="stat-label">Menu Items</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">50K</span>
+      <span class="stat-label">Happy Customers</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">12</span>
+      <span class="stat-label">Years of Craft</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">4.9★</span>
+      <span class="stat-label">Average Rating</span>
+    </div>
+  </section>
+
+  <!-- ========== FEATURED / POPULAR ========== -->
+  <section class="featured" id="featured">
+    <div class="section-header">
+      <p class="section-eyebrow">Our Bestsellers</p>
+      <h2 class="section-title">Popular <span>Burgers</span></h2>
+      <p class="section-desc">Each burger is made to order with freshly ground beef, toasted brioche buns, and house-made condiments.</p>
+    </div>
+    <div class="cards-grid">
+
+      <div class="burger-card">
+        <div class="card-img-wrap">
+          <span class="card-badge hot">🔥 Hot Pick</span>
+          <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500&q=80&auto=format" alt="Classic Smash" />
+        </div>
+        <div class="card-body">
+          <h3>Classic Smash</h3>
+          <p>Double smash patty, American cheese, pickles, onion, secret sauce.</p>
+          <div class="card-footer">
+            <span class="price">$10.99</span>
+            <button class="btn-add"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="burger-card">
+        <div class="card-img-wrap">
+          <span class="card-badge new">✨ New</span>
+          <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=500&q=80&auto=format" alt="Inferno Burger" />
+        </div>
+        <div class="card-body">
+          <h3>Inferno Burger</h3>
+          <p>Habanero patty, ghost pepper mayo, jalapeños, pepper jack, crispy onions.</p>
+          <div class="card-footer">
+            <span class="price">$12.99</span>
+            <button class="btn-add"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="burger-card">
+        <div class="card-img-wrap">
+          <span class="card-badge">⭐ Fan Fave</span>
+          <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=500&q=80&auto=format" alt="Truffle Melt" />
+        </div>
+        <div class="card-body">
+          <h3>Truffle Melt</h3>
+          <p>Wagyu beef, truffle aioli, caramelized onions, gruyère, arugula.</p>
+          <div class="card-footer">
+            <span class="price">$15.99</span>
+            <button class="btn-add"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="burger-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&q=80&auto=format" alt="Bacon King" />
+        </div>
+        <div class="card-body">
+          <h3>Bacon King</h3>
+          <p>Triple crispy bacon, cheddar, BBQ sauce, coleslaw, fried egg.</p>
+          <div class="card-footer">
+            <span class="price">$13.99</span>
+            <button class="btn-add"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== CHOOSE & ENJOY ========== -->
+  <section class="choose" id="choose">
+    <div class="choose-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">Pick Your Flavor</p>
+        <h2 class="section-title">Choose <span>&amp; Enjoy</span></h2>
+        <p class="section-desc">Three legendary bundles to match every craving — from solo snacks to full feasts.</p>
+      </div>
+      <div class="choose-grid">
+
+        <div class="choose-card">
+          <div class="choose-img">
+            <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=400&q=80&auto=format" alt="Solo Combo" />
+          </div>
+          <h3>Solo Combo</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> 1 Signature Burger</li>
+            <li><i class="fas fa-check-circle"></i> Medium Fries</li>
+            <li><i class="fas fa-check-circle"></i> Regular Drink</li>
+          </ul>
+          <p class="choose-price">$14.99</p>
+          <button class="btn btn-primary full-w" onclick="placeOrder('Solo Combo', 14.99)">Order Now</button>
+        </div>
+
+        <div class="choose-card featured-card">
+          <div class="choose-tag">Best Value</div>
+          <div class="choose-img">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&q=80&auto=format" alt="Duo Feast" />
+          </div>
+          <h3>Duo Feast</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> 2 Smash Burgers</li>
+            <li><i class="fas fa-check-circle"></i> Large Loaded Fries</li>
+            <li><i class="fas fa-check-circle"></i> 2 Drinks + Sauce</li>
+          </ul>
+          <p class="choose-price">$26.99</p>
+          <button class="btn btn-dark full-w" onclick="placeOrder('Duo Feast', 26.99)">Order Now</button>
+        </div>
+
+        <div class="choose-card">
+          <div class="choose-img">
+            <img src="https://images.unsplash.com/photo-1585325701165-30a2dc63bb73?w=400&q=80&auto=format" alt="Party Pack" />
+          </div>
+          <h3>Party Pack</h3>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> 6 Assorted Burgers</li>
+            <li><i class="fas fa-check-circle"></i> 2 Family Fries</li>
+            <li><i class="fas fa-check-circle"></i> 6 Drinks + Dessert</li>
+          </ul>
+          <p class="choose-price">$64.99</p>
+          <button class="btn btn-primary full-w" onclick="placeOrder('Party Pack', 64.99)">Order Now</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EVENTS ========== -->
+  <section class="events" id="events">
+    <div class="events-inner">
+      <div class="events-text">
+        <p class="section-eyebrow">What's On</p>
+        <h2 class="section-title">Upcoming <span>Events</span></h2>
+        <div class="event-list">
+          <div class="event-item">
+            <div class="event-date">
+              <span class="ev-day">14</span>
+              <span class="ev-month">Jun</span>
+            </div>
+            <div class="event-info">
+              <h4>Burger Week Festival</h4>
+              <p>7 days, 7 special burgers, daily giveaways and live cooking demos.</p>
+              <span class="event-tag"><i class="fas fa-ticket-alt"></i> Free Entry</span>
+            </div>
+          </div>
+          <div class="event-item">
+            <div class="event-date">
+              <span class="ev-day">21</span>
+              <span class="ev-month">Jun</span>
+            </div>
+            <div class="event-info">
+              <h4>Smash Burger Championship</h4>
+              <p>Local chefs compete for the best creation. You vote, you win prizes too.</p>
+              <span class="event-tag"><i class="fas fa-ticket-alt"></i> $5 Entry</span>
+            </div>
+          </div>
+          <div class="event-item">
+            <div class="event-date">
+              <span class="ev-day">28</span>
+              <span class="ev-month">Jun</span>
+            </div>
+            <div class="event-info">
+              <h4>Family BBQ Sunday</h4>
+              <p>All-you-can-eat brunch, live music, face painting for kids, and more.</p>
+              <span class="event-tag"><i class="fas fa-ticket-alt"></i> $12/person</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="events-image">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80&auto=format" alt="Restaurant event" />
+        <div class="events-img-badge">
+          <i class="fas fa-calendar-alt"></i>
+          <span>3 Events This Month</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROMO BANNER ========== -->
+  <section class="promo-banner">
+    <div class="promo-inner">
+      <div class="promo-text">
+        <p class="promo-eyebrow">Limited Time Offer</p>
+        <h2>Get <span>20% OFF</span> Your First Order</h2>
+        <p>Use code <strong>CRAFT20</strong> at checkout. Valid through June 30, 2025. Dine-in and takeout.</p>
+        <a href="#reservation" class="btn btn-dark">Claim Deal</a>
+      </div>
+      <div class="promo-img">
+        <img src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234?w=500&q=80&auto=format" alt="Promo burger meal" />
+        <div class="promo-badge">CRAFT20</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESERVATION ========== -->
+  <section class="reservation" id="reservation">
+    <div class="reservation-inner">
+      <div class="res-text">
+        <p class="section-eyebrow">Reserve Your Spot</p>
+        <h2 class="section-title">Book <span>Your Table</span></h2>
+        <p>Whether it's a date night or a group hangout, we'll have the perfect table ready with your name on it.</p>
+        <ul class="res-perks">
+          <li><i class="fas fa-star"></i> Priority seating</li>
+          <li><i class="fas fa-gift"></i> Complimentary appetizer</li>
+          <li><i class="fas fa-glass-cheers"></i> Welcome drinks</li>
+        </ul>
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&q=80&auto=format" alt="Restaurant interior" class="res-img"/>
+      </div>
+      <div class="res-form-wrap">
+        <div class="res-form">
+          <h3>Make a Reservation</h3>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="res-name" placeholder="John Smith" />
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="res-email" placeholder="john@example.com" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Date</label>
+              <input type="date" id="res-date" />
+            </div>
+            <div class="form-group">
+              <label>Time</label>
+              <input type="time" id="res-time" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Number of Guests</label>
+            <select id="res-guests">
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="4">3–4 Guests</option>
+              <option value="6">5–6 Guests</option>
+              <option value="8">7+ Guests</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Special Requests</label>
+            <textarea id="res-notes" placeholder="Allergies, seating preferences, occasions..."></textarea>
+          </div>
+          <button id="submit-res-btn" class="btn btn-primary full-w submit-btn">Confirm Reservation</button>
+          <div id="res-message" style="display: none; margin-top: 15px; text-align: center; font-weight: bold; padding: 10px; border-radius: 4px;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-icon">🔥</span>
+          <span class="logo-text">Burger<span>Craft</span></span>
+        </div>
+        <p>Legendary smash burgers crafted with passion and the finest ingredients since 2012.</p>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#featured">Menu</a></li>
+          <li><a href="#choose">Combos</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#reservation">Reservations</a></li>
+          <li><a href="admin.html" style="color: #666;">Admin Dashboard</a></li>
+        </ul>
+      </div>
+      <div class="footer-hours">
+        <h4>Opening Hours</h4>
+        <ul>
+          <li><span>Mon – Thu</span><span>11AM – 10PM</span></li>
+          <li><span>Fri – Sat</span><span>11AM – 11PM</span></li>
+          <li><span>Sunday</span><span>12PM – 9PM</span></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> 24 Flame Street, Grill City</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 823-4400</li>
+          <li><i class="fas fa-envelope"></i> hello@burgercraft.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 BurgerCraft. All rights reserved. Crafted with 🔥 and love.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky header
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    });
+    // Mobile nav
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.burger-card, .choose-card, .event-item, .stat').forEach(el => {
+      el.classList.add('fade-up');
+      observer.observe(el);
+    });
+
+    // --- INTEGRATION LOGIC ---
+    function genId() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
+
+    // Reservation Handling
+    document.getElementById('submit-res-btn').addEventListener('click', () => {
+      const name = document.getElementById('res-name').value.trim();
+      const email = document.getElementById('res-email').value.trim();
+      const date = document.getElementById('res-date').value;
+      const time = document.getElementById('res-time').value;
+      const guests = document.getElementById('res-guests').value;
+      const notes = document.getElementById('res-notes').value.trim();
+      const msgEl = document.getElementById('res-message');
+
+      if (!name || !email || !date || !time) {
+        msgEl.textContent = 'Please fill in all required fields (Name, Email, Date, Time).';
+        msgEl.style.color = '#fff';
+        msgEl.style.backgroundColor = '#d32f2f';
+        msgEl.style.display = 'block';
+        return;
+      }
+
+      // Add to localStorage
+      try {
+        let reservations = JSON.parse(localStorage.getItem('saveur_reservations') || '[]');
+        reservations.unshift({
+          id: genId(),
+          name: name,
+          date: date,
+          time: time,
+          guests: parseInt(guests),
+          table: Math.floor(Math.random() * 20) + 1, // Random table assignment
+          notes: notes,
+          status: 'pending',
+          createdAt: new Date().toISOString()
+        });
+        localStorage.setItem('saveur_reservations', JSON.stringify(reservations));
+        
+        msgEl.innerHTML = '<i class="fas fa-check-circle"></i> Reservation confirmed! See you soon.';
+        msgEl.style.color = '#155724';
+        msgEl.style.backgroundColor = '#d4edda';
+        msgEl.style.display = 'block';
+
+        // Clear form
+        document.getElementById('res-name').value = '';
+        document.getElementById('res-email').value = '';
+        document.getElementById('res-date').value = '';
+        document.getElementById('res-time').value = '';
+        document.getElementById('res-notes').value = '';
+
+        setTimeout(() => { msgEl.style.display = 'none'; }, 5000);
+      } catch (e) {
+        console.error(e);
+        msgEl.textContent = 'Error processing reservation.';
+        msgEl.style.display = 'block';
+      }
+    });
+
+    // Ordering logic
+    function placeOrder(itemName, price) {
+      try {
+        let orders = JSON.parse(localStorage.getItem('saveur_orders') || '[]');
+        orders.unshift({
+          id: genId(),
+          table: 0, // 0 for online orders
+          items: [{ name: itemName, price: price, qty: 1 }],
+          total: price,
+          status: 'pending',
+          createdAt: new Date().toISOString()
+        });
+        localStorage.setItem('saveur_orders', JSON.stringify(orders));
+
+        // Use the same message element to show success
+        const msgEl = document.getElementById('res-message');
+        if(msgEl) {
+          msgEl.innerHTML = `<i class="fas fa-check-circle"></i> Successfully ordered ${itemName}! Your food will be ready soon.`;
+          msgEl.style.color = '#155724';
+          msgEl.style.backgroundColor = '#d4edda';
+          msgEl.style.display = 'block';
+          setTimeout(() => { msgEl.style.display = 'none'; }, 5000);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+  </script>
+</body>
+</html>

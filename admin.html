@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Saveur — Premium Restaurant Management Dashboard. Manage reservations, orders, and menus with ease." />
+  <title>Saveur — Restaurant Management</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════ TOAST ═══════════════════════ -->
+  <div id="toast"></div>
+
+  <!-- ═══════════════════════ AUTH SECTION ═══════════════════════ -->
+  <section id="auth-section" class="auth-section">
+    <div class="auth-bg">
+      <div class="auth-bg-text">SAVEUR</div>
+    </div>
+
+    <div class="auth-card" id="login-card">
+      <div class="auth-logo">✦ SAVEUR</div>
+      <h2 class="auth-title">Welcome Back</h2>
+      <p class="auth-sub">Sign in to your restaurant dashboard</p>
+      <div class="form-group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" placeholder="chef@saveur.com" />
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="••••••••" />
+      </div>
+      <button class="btn-primary" id="login-btn">Sign In</button>
+      <p class="auth-switch">No account? <span id="show-signup-link">Create one →</span></p>
+    </div>
+
+    <div class="auth-card hidden" id="signup-card">
+      <div class="auth-logo">✦ SAVEUR</div>
+      <h2 class="auth-title">Join Us</h2>
+      <p class="auth-sub">Create your restaurant account</p>
+      <div class="form-group">
+        <label for="signup-name">Full Name</label>
+        <input type="text" id="signup-name" placeholder="Gordon Ramsay" />
+      </div>
+      <div class="form-group">
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" placeholder="chef@saveur.com" />
+      </div>
+      <div class="form-group">
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" placeholder="Min. 6 characters" />
+      </div>
+      <button class="btn-primary" id="signup-btn">Create Account</button>
+      <p class="auth-switch">Already have an account? <span id="show-login-link">Sign in →</span></p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ APP ═══════════════════════ -->
+  <div id="app" class="app hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">✦ SAVEUR</div>
+      <nav class="sidebar-nav">
+        <a class="nav-item active" data-page="dashboard" id="nav-dashboard">
+          <span class="nav-icon">◈</span> Dashboard
+        </a>
+        <a class="nav-item" data-page="reservations" id="nav-reservations">
+          <span class="nav-icon">◇</span> Reservations
+        </a>
+        <a class="nav-item" data-page="orders" id="nav-orders">
+          <span class="nav-icon">◉</span> Orders
+        </a>
+        <a class="nav-item" data-page="menu" id="nav-menu">
+          <span class="nav-icon">◈</span> Menu
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user" id="sidebar-user">Chef</div>
+        <button class="btn-logout" id="logout-btn">Sign Out</button>
+      </div>
+    </aside>
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <button class="hamburger" id="hamburger">☰</button>
+      <div class="topbar-title" id="page-title">Dashboard</div>
+      <div class="topbar-time" id="topbar-time"></div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+      <!-- ── DASHBOARD ── -->
+      <div id="page-dashboard" class="page active">
+        <div class="page-header">
+          <h1 class="page-heading">Overview <em>Today</em></h1>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Reservations Today</div>
+            <div class="stat-value" id="stat-reservations">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Active Orders</div>
+            <div class="stat-value" id="stat-orders">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Revenue Today</div>
+            <div class="stat-value" id="stat-revenue">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Menu Items</div>
+            <div class="stat-value" id="stat-menu">—</div>
+          </div>
+        </div>
+
+        <div class="dash-grid">
+          <div class="dash-card">
+            <h3 class="dash-card-title">Recent Reservations</h3>
+            <div id="recent-reservations" class="mini-list">Loading…</div>
+          </div>
+          <div class="dash-card">
+            <h3 class="dash-card-title">Recent Orders</h3>
+            <div id="recent-orders" class="mini-list">Loading…</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── RESERVATIONS ── -->
+      <div id="page-reservations" class="page hidden">
+        <div class="page-header">
+          <h1 class="page-heading">Reservations</h1>
+          <button class="btn-primary small" id="open-reservation-modal">+ New Reservation</button>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Guest</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Guests</th>
+                <th>Table</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="reservations-body">
+              <tr>
+                <td colspan="7" class="loading-row">No reservations yet</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── ORDERS ── -->
+      <div id="page-orders" class="page hidden">
+        <div class="page-header">
+          <h1 class="page-heading">Food Orders</h1>
+          <button class="btn-primary small" id="open-order-modal">+ New Order</button>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Order #</th>
+                <th>Table</th>
+                <th>Items</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Time</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="orders-body">
+              <tr>
+                <td colspan="7" class="loading-row">No orders yet</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── MENU ── -->
+      <div id="page-menu" class="page hidden">
+        <div class="page-header">
+          <h1 class="page-heading">Menu</h1>
+          <button class="btn-primary small" id="open-menu-modal">+ Add Item</button>
+        </div>
+        <div class="menu-grid" id="menu-grid">
+          <div class="loading-row">No menu items yet</div>
+        </div>
+      </div>
+
+      <!-- ── PLACEHOLDERS ── -->
+    <div id="page-pos-dashboard" class="page hidden"><div class="page-header"><h1 class="page-heading">POS Dashboard</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-pos-menu-categories" class="page hidden"><div class="page-header"><h1 class="page-heading">Menu Categories</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-pos-menu-locations" class="page hidden"><div class="page-header"><h1 class="page-heading">Menu Locations</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-pos-customers" class="page hidden"><div class="page-header"><h1 class="page-heading">Customers</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-pos-waiters" class="page hidden"><div class="page-header"><h1 class="page-heading">Waiters</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-pos-bulk-payments" class="page hidden"><div class="page-header"><h1 class="page-heading">Bulk Payments</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-pos-sessions" class="page hidden"><div class="page-header"><h1 class="page-heading">Sessions</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-pos-cashier" class="page hidden"><div class="page-header"><h1 class="page-heading">Cashier</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-pos-kitchen-orders" class="page hidden"><div class="page-header"><h1 class="page-heading">Kitchen Orders</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-pos-tables" class="page hidden"><div class="page-header"><h1 class="page-heading">Tables</h1></div><div class="loading-row">Coming Soon</div></div>
+
+    <div id="page-ecom-delivery" class="page hidden"><div class="page-header"><h1 class="page-heading">Delivery Status</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-ecom-menu" class="page hidden"><div class="page-header"><h1 class="page-heading">E-commerce Menu</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-ecom-users" class="page hidden"><div class="page-header"><h1 class="page-heading">Users</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-ecom-feedbacks" class="page hidden"><div class="page-header"><h1 class="page-heading">Feedbacks</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-ecom-reports" class="page hidden"><div class="page-header"><h1 class="page-heading">E-commerce Reports</h1></div><div class="loading-row">Coming Soon</div></div>
+
+    <div id="page-inv-overview" class="page hidden"><div class="page-header"><h1 class="page-heading">Inventory Overview</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-acc-overview" class="page hidden"><div class="page-header"><h1 class="page-heading">Accounting Overview</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-assets-overview" class="page hidden"><div class="page-header"><h1 class="page-heading">Fixed Assets Overview</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-exp-overview" class="page hidden"><div class="page-header"><h1 class="page-heading">Expenses Overview</h1></div><div class="loading-row">Coming Soon</div></div>
+    <div id="page-fin-overview" class="page hidden"><div class="page-header"><h1 class="page-heading">Financial Reports</h1></div><div class="loading-row">Coming Soon</div></div>
+
+  </main>
+  </div>
+
+  <!-- ═══════════════════════ MODALS ═══════════════════════ -->
+
+  <!-- Reservation Modal -->
+  <div class="modal-overlay hidden" id="reservation-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>New Reservation</h3>
+        <button id="close-reservation-modal">✕</button>
+      </div>
+      <div class="form-group"><label for="res-name">Guest Name</label><input type="text" id="res-name"
+          placeholder="Full name" /></div>
+      <div class="form-row">
+        <div class="form-group"><label for="res-date">Date</label><input type="date" id="res-date" /></div>
+        <div class="form-group"><label for="res-time">Time</label><input type="time" id="res-time" /></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label for="res-guests">Guests</label><input type="number" id="res-guests" min="1"
+            max="20" value="2" /></div>
+        <div class="form-group"><label for="res-table">Table #</label><input type="number" id="res-table" min="1"
+            max="50" value="1" /></div>
+      </div>
+      <div class="form-group"><label for="res-notes">Notes</label><textarea id="res-notes"
+          placeholder="Dietary requirements, special requests…"></textarea></div>
+      <button class="btn-primary" id="add-reservation-btn">Book Reservation</button>
+    </div>
+  </div>
+
+  <!-- Order Modal -->
+  <div class="modal-overlay hidden" id="order-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>New Order</h3>
+        <button id="close-order-modal">✕</button>
+      </div>
+      <div class="form-group"><label for="order-table">Table #</label><input type="number" id="order-table" min="1"
+          max="50" value="1" /></div>
+      <div class="form-group">
+        <label>Select Items</label>
+        <div id="order-menu-items" class="order-items-list">Loading menu…</div>
+      </div>
+      <div class="order-total-bar">
+        Total: <strong id="order-total-display">$0.00</strong>
+      </div>
+      <button class="btn-primary" id="add-order-btn">Place Order</button>
+    </div>
+  </div>
+
+  <!-- Menu Item Modal -->
+  <div class="modal-overlay hidden" id="menu-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Add Menu Item</h3>
+        <button id="close-menu-modal">✕</button>
+      </div>
+      <div class="form-group"><label for="menu-name">Item Name</label><input type="text" id="menu-name"
+          placeholder="e.g. Truffle Risotto" /></div>
+      <div class="form-group"><label for="menu-desc">Description</label><textarea id="menu-desc"
+          placeholder="Short description…"></textarea></div>
+      <div class="form-row">
+        <div class="form-group"><label for="menu-price">Price ($)</label><input type="number" id="menu-price" min="0"
+            step="0.01" placeholder="0.00" /></div>
+        <div class="form-group">
+          <label for="menu-category">Category</label>
+          <select id="menu-category">
+            <option>Starters</option>
+            <option>Mains</option>
+            <option>Desserts</option>
+            <option>Drinks</option>
+            <option>Specials</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-primary" id="add-menu-item-btn">Add to Menu</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
